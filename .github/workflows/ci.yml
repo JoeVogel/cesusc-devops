@@ -34,3 +34,14 @@ jobs:
 
       - name: Run Jest
         run: npm test
+
+      - name: Merge to main if tests pass
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout main
+          git merge develop
+          git push origin main
