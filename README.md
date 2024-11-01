@@ -1,3 +1,3 @@
 # cesusc-devops
 
-Repositório de exemplo para a disciplina Ferramentas de Integração Contínua - DEVOPS
+Repositório de exemplo para a disciplina Ferramentas de Integração Contínua - DEVOPS da UniCESUSC
