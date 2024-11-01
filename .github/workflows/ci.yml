@@ -47,6 +47,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
+          fetch-depth: 0  # Traz todo o histórico
+          ref: main  # Certifique-se de trazer a branch main
 
       - name: Set up Git
         run: |
