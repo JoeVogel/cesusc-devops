@@ -48,17 +48,19 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           fetch-depth: 0  # Traz todo o histórico
-          ref: main  # Certifique-se de trazer a branch main
 
       - name: Set up Git
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
+
+      - name: Fetch all branches
+        run: git fetch --all
       
-      - name: Merge to main
+      - name: Checkout and merge
         run: |
-          git fetch --all
           git checkout main
-          git merge develop --allow-unrelated-histories --no-edit
+          git merge origin/develop --allow-unrelated-histories --no-edit  # Use 'origin/develop' explicitamente
+          git push origin main
           git push origin main
   
